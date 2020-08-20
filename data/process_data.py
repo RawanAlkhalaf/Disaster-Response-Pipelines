@@ -72,7 +72,7 @@ def save_data(df, database_filename):
     '''
     engine = create_engine('sqlite:///{}'.format(database_filename))
     dbname = database_filename.split('/')[-1]
-    df.to_sql(dbname.split('.')[0], engine, index=False) 
+    df.to_sql(dbname.split('.')[0], engine, index=False, if_exists='replace') 
 
 def main():
     if len(sys.argv) == 4:
